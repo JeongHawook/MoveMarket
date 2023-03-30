@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>시장을 찾아서</title>
+    
+</head>
+<body>
+  
+  <div id="mainList">
+    <nav class="navbar navbar-inverse" id="navBar">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="">Home</a>
+        </li>
+
+        
+        <div id="loginStatus">
+        <li class="nav-item2">
+          <button type="button" class="btn" id ="login" data-bs-toggle="modal" data-bs-target="#exampleModal_login"
+           data-bs-whatever="@mdo">로그인</button>
+         </li>
+          <li class="nav-item2">
+            <button type="button" class="btn" id ="login" data-bs-toggle="modal" data-bs-target="#exampleModal_join"
+            data-bs-whatever="@fat">회원가입</button>
+          </li>
+        </div>
+      </ul>
+
+      <!-- Button trigger modal 우측상단 로그인, 회원가입 -->
+      
+      <ul class="nav justify-content-end" id="loginLayout"></ul>
+    </nav>
+
+    <!-- Button trigger modal 내용 로그인 -->
+
+    <div
+      class="modal fade"
+      id="exampleModal_login"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">로그인</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >이메일 :</label
+                >
+                <input type="email" class="form-control" id="loginEmail" />
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >비밀번호:</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              닫기
+            </button>
+            <button
+              type="button"
+              onclick="userLogin()"
+              class="btn btn-primary"
+            >
+              로그인
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Button trigger modal 2 내용 회원가입 -->
+
+    <div
+      class="modal fade"
+      id="exampleModal_join"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">회원가입</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="userEmail" class="col-form-label">이메일</label>
+                <input type="email" class="form-control" id="userEmail" />
+              </div>
+              <div class="mb-3">
+                <label for="userId" class="col-form-label">아이디</label>
+                <input type="email" class="form-control" id="userId" />
+              </div>
+              <div class="mb-3">
+                <label for="userPwd" class="col-form-label">비밀번호</label>
+                <input type="password" class="form-control" id="userPwd" />
+              </div>
+              <div class="mb-3">
+                <label for="userPwdCheck" class="col-form-label"
+                  >비밀번호확인</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="userPwdCheck"
+                />
+              </div>
+              <div class="mb-3">
+                <div class="form-group">
+                  <label for="userAddr" class="col-form-label">주소</label>
+                  <select class="form-control" id="userAddr">
+                    <option value="강원도">강원도</option>
+                    <option value="경기도">경기도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="충청남도">충청남도</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="userProfile" class="col-form-label"
+                    >프로필</label
+                  >
+                  <input type="file" class="form-control" id="userProfile" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              닫기
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="register()"
+            >
+              회원가입
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+<div class="space"></div>
+<div id="map" style="width:45%;height:350px;"></div>
+
+<div id="nameResult"></div>
+<div id="mList">
+<table>
+    <tr>
+      <td>상세주소</td>
+      <td><div id="addrResult"></div></td>
+    </tr>
+    <tr>
+      <td>시장유형</td>
+      <td><div id="openResult"></div></td>
+    </tr>
+    <tr>
+      <td>홈페이지</td>
+      <td><div id="urlResult"></div></td>
+    </tr>
+    <tr>
+      <td>상품 / 점포수</td>
+      <td><div id="prodStore"></div></td>
+    </tr>
+    <tr>
+      <td>화장실/주차장</td>
+      <td><div id="restPark"></div></td>
+    </tr>
+  </table>
+
+
+
+  <div class="comment-section">
+    <h3>댓 글</h3>
+    <div class="comment-form">
+    <textarea id="comment_details" placeholder="댓글을 남겨주세요!"></textarea>
+    <button type="button" onclick="postComment()">등록</button>  
+</div>
+
+    <ul class="comment-list">
+      
+    </ul>
+  </div>
+</div>
+
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript"
+ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=577a0dd41159a80d202a029c984e8544&libraries=services"></script>
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+<link rel="stylesheet" href="/static/css/home.css">
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script> -->
+
+
+</body>
+</html>
